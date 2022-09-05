@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.Nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: yellow
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  background-color: orange;
+}
+
+.itemSort {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: orange;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 1em;
+  grid-row-gap: 3em;
+}
+
+.productStyle {
+  background: white;
+}
+
+.productImage{
+  height: 30vmin;
+}
+
+.spinner {
+  position:fixed;
+  top:50%;
+  left:50%
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+}
+
+.quantity button {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 0;
+  background: #fff;
+}
+
+.quantity input{
+  border: none;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  width: 45px;
+  font-size: 20px;
+  color: #000;
+  font-weight: 300;
+}
+
+.input{
+  border: none;
+  border-width: 0;
+  box-shadow: none;
+  outline: none;
+  text-align: center; 
+}
