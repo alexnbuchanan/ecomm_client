@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./../App.css";
 import * as ReactBootStrap from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Grid,
   Paper,
@@ -19,6 +19,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ShopMobile from "./ShopMobile";
 
 function Shop() {
+  const history = useHistory();
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilteredProducts] = useState([]);
   const [item, setItem] = useState("");
@@ -83,6 +84,10 @@ function Shop() {
   const isMatch = useMediaQuery(theme.breakpoints.down("xs"));
 
   const classes = useStyles();
+
+  const navigateToItem = (event, item, index) => {
+    history.push({ pathname: "/Item", state: { item: item, index: index } });
+  };
 
   return isMatch ? (
     <ShopMobile />
@@ -166,23 +171,18 @@ function Shop() {
           <Grid container spacing={3}>
             {filterProducts.map((a, index) => (
               <Grid item xs={3}>
-                <Card>
+                <Card onClick={(event) => navigateToItem(event, a, index)}>
                   <CardContent>
-                    <Link
-                      to={`/Item/${a.id}`}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <div key={index} className="productStyle">
-                        <CardMedia
-                          component="img"
-                          image={require(`../images/${a.image}`)}
-                        />
-                        <Typography className={classes.cardText}>
-                          <div>{a.title}</div>
-                          <div>${priceUSD(a.price)}</div>
-                        </Typography>
-                      </div>
-                    </Link>
+                    <div key={index} className="productStyle">
+                      <CardMedia
+                        component="img"
+                        image={require(`../images/${a.image}`)}
+                      />
+                      <Typography className={classes.cardText}>
+                        <div>{a.title}</div>
+                        <div>${priceUSD(a.price)}</div>
+                      </Typography>
+                    </div>
                   </CardContent>
                 </Card>
               </Grid>
