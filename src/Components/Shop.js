@@ -30,7 +30,7 @@ function Shop() {
   }, []);
 
   const fetchItems = async () => {
-    const data = await fetch(`${process.env.REACT_APP_BASE_URL}/items`);
+    const data = await fetch(`https://ecomm-server-items.herokuapp.com/items`);
     const items = await data.json();
     if (items && items.items) {
       setProducts(items.items);
